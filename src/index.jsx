@@ -1,6 +1,8 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-import './style.css';
+import React from "react";
+import { createRoot } from "react-dom/client";
+import "./style.css";
+import { palettes } from "./palettes";
+import Palette from "./components/Palette";
 
 const App = () => {
   return (
@@ -9,7 +11,21 @@ const App = () => {
         <h1>Barevné palety</h1>
       </header>
       <main>
-        <div className="palette">
+        {
+          palettes.map((paletteData) => (
+            <Palette
+              key={paletteData.name}
+              image={paletteData.image}
+              name={paletteData.name}
+              attributionUrl={paletteData.attribution.url}
+              attributionName={paletteData.attribution.name}
+              colors={paletteData.colors}
+              description={paletteData.description}
+              direction={paletteData.direction}
+            />
+          ))
+
+          /* <div className="palette">
           <div className="palette-scheme palette-scheme--vertical">
             <img className="scheme-image" src="/img/mimosa-retreat.jpg" alt="Mimosa Retreat" />
             <div className="scheme-colors">
@@ -45,7 +61,8 @@ const App = () => {
 
             <p>Photo by <a href="https://unsplash.com/photos/wc9avd2RaN0" target="_blank">Christoffer Engström</a>.</p>
           </div>
-        </div>
+        </div> */
+        }
       </main>
       <footer>
         <p>Czechitas, Digitální akademie: Web</p>
@@ -54,6 +71,4 @@ const App = () => {
   );
 };
 
-createRoot(
-  document.querySelector('#app'),
-).render(<App />);
+createRoot(document.querySelector("#app")).render(<App />);

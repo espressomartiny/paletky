@@ -64,12 +64,12 @@ html {
   flex-direction: column;
 }
 
-.scheme-color {
+/* .scheme-color {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
 .palette-info {
   margin-left: 2rem;
